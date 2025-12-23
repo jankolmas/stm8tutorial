@@ -10,7 +10,7 @@ Install build tools:
 
 ```
 sudo apt update
-sudo apt install sdcc make cmake git
+sudo apt install sdcc make
 ```
 
 Install flashing tools from source:
