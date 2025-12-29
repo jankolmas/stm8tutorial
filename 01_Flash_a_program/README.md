@@ -1,6 +1,17 @@
 # 01: Flash a program
 
-This tutorial teaches how to flash a minimal working code to the STM8.
+This tutorial teaches how to flash a minimal working code to the STM8. You will need:
+
+* STM8S103F3P6 board
+* Male headers
+* ST-Link v2
+* 4-pin female to female jumper
+
+## Set up hardware
+If you haven't done so yet, solder the headers to the STM8 board. There are two rows of 10, plus one row of 4.
+
+Connect the ST-Link v2 to the STM8 board 4-pin connector using female to female jumper cables. Pay attention to correctly match the RST, GND, SWIM and 3.3V pins.
+
 
 ## Setup environment
 
