@@ -10,6 +10,6 @@ void main(void)
     while (1)
     {
         PB_ODR ^= (1 << 5);
-        for (volatile long i = 0; i < 30000; i++);
+        for (volatile long i = 0; i < 100000; i++);
     }
 }
