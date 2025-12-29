@@ -1,4 +1,4 @@
-#include "stm8.h"
+#include "stm8_01.h"
 
 void main(void)
 {

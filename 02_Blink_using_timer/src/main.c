@@ -1,9 +1,9 @@
-#include "stm8.h"
+#include "stm8_02.h"
 
 volatile uint16_t timer_count = 0;
 
 // TIM1 interrupt handler
-void TIM1_UPD_OVF_IRQHandler(void) __interrupt(11)
+void TIM1_interrupt(void) __interrupt(TIM1_INTERRUPT_VECTOR)
 {
     TIM1_SR1 &= ~0x01;  // clear update flag
     
@@ -24,16 +24,24 @@ void main(void)
     PB_CR1 |= (1 << 5);   // push-pull
 
     // Setup TIM1
-    // For 1ms interrupt: prescaler = 16, period = 1000
-    // Clock = 16 MHz, prescaler = 16 -> 1 MHz, 1000 counts = 1ms
+
+    // Prescaler registers (high and low bytes). 
+    // Together they set the clock division factor.
+    // Value 0x000F (16) divides the 16 MHz clock by 16 to get 1 MHz.
     TIM1_PSCRH = 0x00;
-    TIM1_PSCRL = 0x0F;    // prescaler = 16
+    TIM1_PSCRL = 0x0F;    
     
-    TIM1_ARRH = 0x03;     // auto-reload = 1000
+    // Auto-Reload Register (high and low bytes).
+    // Sets the period/maximum count value. When the counter reaches this value
+    // (1000 = 0x03E8), it resets to 0 and generates an update interrupt.
+    TIM1_ARRH = 0x03;     
     TIM1_ARRL = 0xE8;
     
-    TIM1_IER |= 0x01;     // enable update interrupt
-    TIM1_CR1 |= 0x01;     // enable counter
+    // Enable update interrupt
+    TIM1_IER |= 0x01;
+    
+    // Enable counter
+    TIM1_CR1 |= 0x01;
 
     __asm__("rim");       // enable interrupts
 

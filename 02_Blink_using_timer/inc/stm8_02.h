@@ -21,5 +21,6 @@
 #define TIM1_PSCRL (*(volatile uint8_t*)0x5261)
 #define TIM1_ARRH (*(volatile uint8_t*)0x5262)
 #define TIM1_ARRL (*(volatile uint8_t*)0x5263)
+#define TIM1_INTERRUPT_VECTOR 11
 
 #endif
