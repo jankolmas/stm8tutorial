@@ -5,7 +5,6 @@ CC = sdcc
 CFLAGS = -mstm8 --opt-code-size
 
 SRC = src/main.c
-INC = -Iinc
 
 all: clean
 	$(CC) $(CFLAGS) $(INC) $(SRC) -o build/$(TARGET).ihx

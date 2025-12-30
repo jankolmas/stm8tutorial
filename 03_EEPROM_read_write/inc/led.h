@@ -1,5 +1,5 @@
-#ifndef STM8_H
-#define STM8_H
+#ifndef LED_H
+#define LED_H
 
 #include <stdint.h>
 
