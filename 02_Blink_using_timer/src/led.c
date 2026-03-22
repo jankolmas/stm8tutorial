@@ -29,3 +29,10 @@ void blink(uint32_t on_ms, uint32_t off_ms)
     onboard_led_off();
     sleep_ms(off_ms);
 }
+
+void blink_n_times(int n)
+{
+    for (int i = 0; i < n; i++){
+        blink(DEFAULT_LED_ON_MS,DEFAULT_LED_OFF_MS);
+    }
+}

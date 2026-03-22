@@ -14,8 +14,10 @@ void main(void)
 
     __asm__("rim");       // enable interrupts
 
-    while (1)
+    blink_n_times(3);
+
+    while(1)
     {
-        blink(100,900);
+        //end program
     }
 }
