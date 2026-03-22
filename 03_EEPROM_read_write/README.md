@@ -6,8 +6,4 @@ This tutorial teaches how to read and write values to EEPROM that persist a rebo
 
 Build with `make` and flash with `make flash` commands. See instructions in chapter 00 on how to set up the hardware and development environment.
 
-The program will write a value determined in the code. If the value was previously missing or
-different, the program will write it and the LED will light up for 1s to indicate writing.
-
-If the value was the same, the program will blink twice quickly to indicate that the value
-is already stored.
+You can set a value of a byte in EEPROM memory to any value 0-255, for example to 5 with `make eeprom 5`. The program will then read the value and blink that many times. You can also read the value with the programmer with `make eeprom-read`
