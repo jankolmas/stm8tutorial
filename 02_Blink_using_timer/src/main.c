@@ -1,6 +1,11 @@
 #include "led.h"
 #include "timing.h"
 
+void TIM1_interrupt(void) __interrupt(TIM1_INTERRUPT_VECTOR)
+{
+    timing_handle_interrupt();
+}
+
 void main(void)
 {
     full_speed_clock();

@@ -3,10 +3,9 @@
 #include <stddef.h>
 
 volatile uint16_t timer_count = 0;
-static timer_callback_t timer_callback = NULL;
+volatile timer_callback_t timer_callback = NULL;
 
-// TIM1 interrupt handler
-void TIM1_interrupt(void) __interrupt(TIM1_INTERRUPT_VECTOR)
+void timing_handle_interrupt(void)
 {
     TIM1_SR1 &= ~0x01;  // clear update flag
     

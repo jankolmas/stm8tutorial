@@ -20,6 +20,8 @@
 
 typedef void (*timer_callback_t)(void);
 
+void timing_handle_interrupt(void);
+
 /**
  * Initialize the timer with the given callback function.
  * The callback will be called periodically based on the timer configuration.
