@@ -3,9 +3,6 @@
 
 #include <stdint.h>
 
-/* Clock */
-#define CLK_CKDIVR (*(volatile uint8_t*)0x50C6)
-
 /* GPIO Port B */
 #define PB_ODR (*(volatile uint8_t*)0x5005)
 #define PB_DDR (*(volatile uint8_t*)0x5007)

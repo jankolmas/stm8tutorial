@@ -7,6 +7,6 @@ void main(void)
     while (1)
     {
         toggle_onboard_led();
-        for (volatile long i = 0; i < 100000; i++);
+        for (volatile long i = 0; i < 10000; i++);
     }
 }
