@@ -42,6 +42,6 @@ void sleep_ms(uint32_t delay)
     uint32_t start = system_ms;
 
     while (system_ms - start < delay) {
-        // Blocking until time is up
+        __asm__("wfi");  // save power while waiting
     }
 }
