@@ -2,28 +2,16 @@
 #include "timing.h"
 #include <stddef.h>
 
-volatile uint16_t timer_count = 0;
-volatile timer_callback_t timer_callback = NULL;
+volatile uint32_t system_ms = 0;
 
 void timing_handle_interrupt(void)
 {
     TIM1_SR1 &= ~0x01;  // clear update flag
-    
-    timer_count++;
-    if (timer_count >= 1000)  // 1000ms = 1s
-    {
-        if (timer_callback)
-        {
-            timer_callback();
-        }
-        timer_count = 0;
-    }
+    system_ms++;
 }
 
-void timing_init(timer_callback_t callback)
+void timing_init()
 {
-    timer_callback = callback;
-    
     // Setup TIM1
     // Prescaler registers (high and low bytes). 
     // Together they set the clock division factor.
@@ -47,4 +35,13 @@ void timing_init(timer_callback_t callback)
 void full_speed_clock(void)
 {
     CLK_CKDIVR = 0x00;  // full speed (16 MHz)
+}
+
+void sleep_ms(uint32_t delay)
+{
+    uint32_t start = system_ms;
+
+    while (system_ms - start < delay) {
+        // Blocking until time is up
+    }
 }

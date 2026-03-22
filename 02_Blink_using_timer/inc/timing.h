@@ -18,18 +18,12 @@
 #define TIM1_ARRL (*(volatile uint8_t*)0x5263)
 #define TIM1_INTERRUPT_VECTOR 11
 
-typedef void (*timer_callback_t)(void);
-
 void timing_handle_interrupt(void);
 
-/**
- * Initialize the timer with the given callback function.
- * The callback will be called periodically based on the timer configuration.
- * 
- * @param callback Function to be called on each timer interrupt
- */
-void timing_init(timer_callback_t callback);
+void timing_init();
 
 void full_speed_clock(void);
+
+void sleep_ms(uint32_t);
 
 #endif // TIMING_H
