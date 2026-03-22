@@ -10,5 +10,8 @@
 
 void setup_onboard_led(void);
 void toggle_onboard_led(void);
+void onboard_led_on(void);
+void onboard_led_off(void);
+void blink(uint32_t on_ms, uint32_t off_ms);
 
 #endif

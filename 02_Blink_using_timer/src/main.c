@@ -16,7 +16,6 @@ void main(void)
 
     while (1)
     {
-        sleep_ms(1000);
-        toggle_onboard_led();
+        blink(100,900);
     }
 }
