@@ -1,4 +1,4 @@
-# 03: EEPROM read and write
+# 04: Memory read and write
 
 This tutorial teaches how to read and write values to EEPROM that persist a reboot and programming
 

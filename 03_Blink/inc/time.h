@@ -1,5 +1,5 @@
-#ifndef TIMING_H
-#define TIMING_H
+#ifndef TIME_H
+#define TIME_H
 
 #include <stdint.h>
 
@@ -18,12 +18,10 @@
 #define TIM1_ARRL (*(volatile uint8_t*)0x5263)
 #define TIM1_INTERRUPT_VECTOR 11
 
-void timing_handle_interrupt(void);
+void tim1_handle_interrupt(void);
 
-void timing_init();
-
-void full_speed_clock(void);
+void time_init();
 
 void sleep_ms(uint32_t);
 
-#endif // TIMING_H
+#endif // TIME_H

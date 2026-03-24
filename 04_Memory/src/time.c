@@ -1,18 +1,20 @@
 #include "led.h"
-#include "timing.h"
+#include "time.h"
 #include <stddef.h>
 
 volatile uint32_t system_ms = 0;
 
-void timing_handle_interrupt(void)
+void tim1_handle_interrupt(void)
 {
     TIM1_SR1 &= ~0x01;  // clear update flag
     system_ms++;
 }
 
-void timing_init()
+void time_init()
 {
-    // Setup TIM1
+    // Full speed (16 MHz)
+    CLK_CKDIVR = 0x00;  
+    
     // Prescaler registers (high and low bytes). 
     // Together they set the clock division factor.
     // Value 0x000F (16) divides the 16 MHz clock by 16 to get 1 MHz.
@@ -30,11 +32,6 @@ void timing_init()
     
     // Enable counter
     TIM1_CR1 |= 0x01;
-}
-
-void full_speed_clock(void)
-{
-    CLK_CKDIVR = 0x00;  // full speed (16 MHz)
 }
 
 void sleep_ms(uint32_t delay)
