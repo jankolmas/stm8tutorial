@@ -2,11 +2,11 @@
 
 void main(void)
 {
-    setup_onboard_led();
+    onboard_led_init();
 
     while (1)
     {
-        toggle_onboard_led();
+        onboard_led_toggle();
         for (volatile long i = 0; i < 10000; i++);
     }
 }

@@ -13,7 +13,7 @@ void main(void)
 
     while(1)
     {
-        toggle_onboard_led();
+        onboard_led_toggle();
         sleep_ms(500);
     }
 }

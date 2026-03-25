@@ -1,5 +1,6 @@
 #include "led.h"
 #include "time.h"
+#include "blink.h"
 
 void blink_init()
 {

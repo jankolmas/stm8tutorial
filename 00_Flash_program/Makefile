@@ -1,8 +1,8 @@
-MCU = stm8s103 					# This is our microprocessor
-TARGET = main 	 				# The name of our resulting binary
-CC = sdcc      					# We use sdcc to compile our C code
+MCU = stm8s103 # This is our microprocessor
+TARGET = main# The name of our resulting binary
+CC = sdcc # We use sdcc to compile our C code
 CFLAGS = -mstm8 --opt-code-size # Target STM8 architecrure and minimize size
-SRC = src/main.c 				# For now there is just one source file
+SRC = src/main.c # For now there is just one source file
 
 
 # Compiles the code into intel hex format. Since it is the first command,
