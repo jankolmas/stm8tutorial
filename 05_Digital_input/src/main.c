@@ -1,6 +1,7 @@
 #include "blink.h"
 #include "time.h"
 #include "button.h"
+#include "led.h"
 
 void TIM1_interrupt(void) __interrupt(TIM1_INTERRUPT_VECTOR)
 {
@@ -14,19 +15,24 @@ void main(void)
 
     __asm__("rim");       // enable interrupts
 
+    uint8_t button_pressed = 0;
+    
+    blink_n_times(2);
+    sleep_ms(1000);
+    
+
     while(1)
     {
+        
         //go through all buttons
-        for(int i = 1; i > NUM_BUTTONS; i++){
+        for(int i = 1; i <= NUM_BUTTONS; i++){
             // read digital pin
-            button_state = read_button(i);
+            button_pressed = read_button(i);
             
-            // if it is logical zero, blink to indicate button pressed
-            if (button state == 0) {
+            if (button_pressed > 0) {
                 blink_n_times(i);
-            } else {
-                sleep_ms(50);
-            }
+            } 
+            sleep_ms(10);
         }
 
     }
